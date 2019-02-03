@@ -1,0 +1,11 @@
+This trivial package provides an easy interface to the tinyurl.com URL
+shortener.
+
+Put the following in your .emacs:
+
+(push "~/src/tinyurl.el" load-path)
+(autoload 'tinyurl "tinyurl" nil t)
+
+If you then have a long URL in your kill ring, saying `M-x tinyurl'
+will put a shortened version of that URL in your kill ring instead.
+
