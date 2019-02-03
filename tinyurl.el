@@ -21,9 +21,14 @@
 
 ;;; Commentary:
 
+;; Put the following in your .emacs:
+
+;; (push "~/src/tinyurl.el" load-path)
+;; (autoload 'tinyurl "tinyurl" nil t)
+
 ;;; Code:
 
-(defun tinyurl-kill-ring ()
+(defun tinyurl ()
   "Get a tinyurl.com URL from the contents of the kill ring.
 The result is pushed onto the kill ring."
   (interactive)
