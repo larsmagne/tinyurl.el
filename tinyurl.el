@@ -23,6 +23,26 @@
 
 ;;; Code:
 
+(defun tinyurl-kill-ring ()
+  "Get a tinyurl.com URL from the contents of the kill ring.
+The result is pushed onto the kill ring."
+  (interactive)
+  (let ((old (car kill-ring))
+	new)
+    (unless old
+      (error "The kill ring is empty"))
+    (with-current-buffer (url-retrieve-synchronously
+			  (format "https://tinyurl.com/api-create.php?url=%s"
+				  old))
+      (goto-char (point-min))
+      (when (search-forward "\n\n" nil t)
+	(setq new (buffer-substring (point) (point-max))))
+      (kill-buffer (current-buffer)))
+    (unless new
+      (error "No response from tinyurl"))
+    (kill-new new)
+    (message "Copied %s" new)))
+
 (provide 'tinyurl)
 
 ;;; tinyurl.el ends here
