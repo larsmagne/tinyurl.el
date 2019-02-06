@@ -32,7 +32,7 @@
   "Get a tinyurl.com URL from the contents of the kill ring.
 The result is pushed onto the kill ring."
   (interactive)
-  (let ((old (car kill-ring))
+  (let ((old (current-kill 0))
 	new)
     (unless old
       (error "The kill ring is empty"))
