@@ -1,4 +1,4 @@
-;;; tinyurl.el --- playing tinyurls
+;;; tinyurl.el --- Shorten URLs with tinyurl
 ;; Copyright (C) 2019 Lars Magne Ingebrigtsen
 
 ;; Author: Lars Magne Ingebrigtsen <larsi@gnus.org>
